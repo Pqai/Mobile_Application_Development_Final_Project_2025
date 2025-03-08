@@ -4,13 +4,16 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.mobile_application_development_final_project_2025.data.Comment
 import com.example.mobile_application_development_final_project_2025.ui.theme.Mobile_Application_Development_Final_Project_2025Theme
 
 class MainActivity : ComponentActivity() {
@@ -29,6 +32,12 @@ fun BookItApp() {
 }
 
 @Composable
+fun HomePage() {
+
+    BookDisplay()
+}
+
+@Composable
 fun BookPreview(){
 
 }
@@ -36,6 +45,7 @@ fun BookPreview(){
 @Composable
 fun BookPage(){
     //the code for the books own page displaying title, description, ratings, comment section
+
 }
 
 @Composable
@@ -54,6 +64,7 @@ fun YourListFunctions(){
 @Composable
 fun BookItTopBar(){
     //The top bar of the app where logo, search bar and profile button go
+
 }
 
 @Composable
@@ -70,6 +81,8 @@ fun BookDisplay(){
 @Composable
 fun BookDetailPage(){
     //The page that appears when you click on a book that shows the full cover of the book, author description and a button to bookmark or unbookmark the book and see the comment section below
+
+    CommentsSection()
 }
 
 @Composable
@@ -90,6 +103,17 @@ fun AlternateBookmarkButton(){
 @Composable
 fun CommentsSection(){
     //the place where you can view others comments or
+}
+
+@Composable
+fun CommentUi(){
+    Card(){
+        Column() {
+            ProfileIcon()
+            Text(/*user name*/)
+            Text(/*actual comment*/)
+        }
+    }
 }
 
 @Composable
@@ -125,6 +149,7 @@ fun LogInFunction(){
 @Composable
 fun LoginInPage(){
 
+
 }
 
 @Composable
@@ -139,6 +164,11 @@ fun SignUpFunction(){
 
 @Composable
 fun SignUpPage(){
+
+}
+
+@Composable
+fun ProfileIcon(){
 
 }
 
