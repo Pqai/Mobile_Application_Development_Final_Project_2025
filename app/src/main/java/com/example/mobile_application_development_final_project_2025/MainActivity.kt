@@ -31,11 +31,11 @@ fun BookItApp() {
 //where you put every function to make the complete app
 }
 
-@Composable
+/*@Composable
 fun HomePage() {
-
+                    //This has been moved to HomeScreen.kt delete later
     BookDisplay()
-}
+}*/
 
 @Composable
 fun BookPreview(){
@@ -65,6 +65,7 @@ fun YourListFunctions(){
 fun BookItTopBar(){
     //The top bar of the app where logo, search bar and profile button go
 
+    SearchBar()
 }
 
 @Composable
@@ -78,12 +79,12 @@ fun BookDisplay(){
     //how the books will appear in the app showing a glimpse of the cover title author ratings and th general layout when searching through books like amazon
 }
 
-@Composable
+/*@Composable
 fun BookDetailPage(){
     //The page that appears when you click on a book that shows the full cover of the book, author description and a button to bookmark or unbookmark the book and see the comment section below
-
+    //This has been moved to BookDetailPage.kt
     CommentsSection()
-}
+}*/
 
 @Composable
 fun BookmarkButtonFunction(){
@@ -146,11 +147,11 @@ fun LogInFunction(){
 
 }
 
-@Composable
+/*@Composable
 fun LoginInPage(){
+                 //Moved to LoginPage.kt
 
-
-}
+}*/
 
 @Composable
 fun LogOutFunction(){
@@ -162,10 +163,10 @@ fun SignUpFunction(){
 
 }
 
-@Composable
+/*@Composable
 fun SignUpPage(){
-
-}
+                //Moved to SignupPae.kt
+}*/
 
 @Composable
 fun ProfileIcon(){
@@ -182,10 +183,10 @@ fun ProfileIconFunctions(){
 
 }
 
-@Composable
+/*@Composable
 fun ProfilePage(){
-
-}
+                    //Moved to ProfilePage.kt
+}*/
 
 
 @Preview(showBackground = true)
