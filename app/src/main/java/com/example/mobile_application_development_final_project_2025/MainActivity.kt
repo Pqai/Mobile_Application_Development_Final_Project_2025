@@ -7,6 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Card
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -30,12 +31,6 @@ class MainActivity : ComponentActivity() {
 fun BookItApp() {
 //where you put every function to make the complete app
 }
-
-/*@Composable
-fun HomePage() {
-                    //This has been moved to HomeScreen.kt delete later
-    BookDisplay()
-}*/
 
 @Composable
 fun BookPreview(){
@@ -79,13 +74,6 @@ fun BookDisplay(){
     //how the books will appear in the app showing a glimpse of the cover title author ratings and th general layout when searching through books like amazon
 }
 
-/*@Composable
-fun BookDetailPage(){
-    //The page that appears when you click on a book that shows the full cover of the book, author description and a button to bookmark or unbookmark the book and see the comment section below
-    //This has been moved to BookDetailPage.kt
-    CommentsSection()
-}*/
-
 @Composable
 fun BookmarkButtonFunction(){
     //The bookmarks functionality of adding or removing the book from your list
@@ -101,10 +89,24 @@ fun AlternateBookmarkButton(){
     //the bookmark ui specifically for the bookdetailpage that is larger
 }
 
-@Composable
+/*@Composable
 fun CommentsSection(){
     //the place where you can view others comments or
+    val placeholderComments = listOf(
+        Comment(
+            id ="1",
+            text  = "Comments Example!",
+            user = "User12345",
+
+        )
+    )
+
+    LazyColumn {
+        items()
+    }
 }
+MOVED TO CommentsSection.kt
+*/
 
 @Composable
 fun CommentUi(){
@@ -147,12 +149,6 @@ fun LogInFunction(){
 
 }
 
-/*@Composable
-fun LoginInPage(){
-                 //Moved to LoginPage.kt
-
-}*/
-
 @Composable
 fun LogOutFunction(){
 
@@ -162,11 +158,6 @@ fun LogOutFunction(){
 fun SignUpFunction(){
 
 }
-
-/*@Composable
-fun SignUpPage(){
-                //Moved to SignupPae.kt
-}*/
 
 @Composable
 fun ProfileIcon(){
@@ -188,6 +179,29 @@ fun ProfilePage(){
                     //Moved to ProfilePage.kt
 }*/
 
+/*@Composable
+fun LoginInPage(){
+                 //Moved to LoginPage.kt
+
+}*/
+
+/*@Composable
+fun SignUpPage(){
+                //Moved to SignupPae.kt
+}*/
+
+/*@Composable
+fun BookDetailPage(){
+    //The page that appears when you click on a book that shows the full cover of the book, author description and a button to bookmark or unbookmark the book and see the comment section below
+    //This has been moved to BookDetailPage.kt
+    CommentsSection()
+}*/
+
+/*@Composable
+fun HomePage() {
+                    //This has been moved to HomeScreen.kt delete later
+    BookDisplay()
+}*/
 
 @Preview(showBackground = true)
 @Composable

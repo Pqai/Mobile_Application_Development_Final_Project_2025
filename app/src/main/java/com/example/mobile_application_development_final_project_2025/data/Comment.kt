@@ -4,4 +4,5 @@ data class Comment(
     val id: String,
     val text: String,
     val user: String,
+    val profilePicture: String
 )
