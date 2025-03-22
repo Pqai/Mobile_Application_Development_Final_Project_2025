@@ -41,7 +41,10 @@ android {
 
 dependencies {
 
-    //val nav_version = "2.8.8"
+// Retrofit
+    implementation(libs.retrofit)
+// Retrofit with Scalar Converter
+    implementation(libs.converter.scalars)
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)

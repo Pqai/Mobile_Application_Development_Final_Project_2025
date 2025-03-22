@@ -89,36 +89,6 @@ fun AlternateBookmarkButton(){
     //the bookmark ui specifically for the bookdetailpage that is larger
 }
 
-/*@Composable
-fun CommentsSection(){
-    //the place where you can view others comments or
-    val placeholderComments = listOf(
-        Comment(
-            id ="1",
-            text  = "Comments Example!",
-            user = "User12345",
-
-        )
-    )
-
-    LazyColumn {
-        items()
-    }
-}
-MOVED TO CommentsSection.kt
-*/
-
-@Composable
-fun CommentUi(){
-    Card(){
-        Column() {
-            ProfileIcon()
-            Text(/*user name*/)
-            Text(/*actual comment*/)
-        }
-    }
-}
-
 @Composable
 fun CommentFunctions(){
     //make code to create delete and edit your own comments
@@ -161,7 +131,7 @@ fun SignUpFunction(){
 
 @Composable
 fun ProfileIcon(){
-
+    //The profile icon
 }
 
 @Composable
@@ -173,35 +143,6 @@ fun ProfileIconUI(){
 fun ProfileIconFunctions(){
 
 }
-
-/*@Composable
-fun ProfilePage(){
-                    //Moved to ProfilePage.kt
-}*/
-
-/*@Composable
-fun LoginInPage(){
-                 //Moved to LoginPage.kt
-
-}*/
-
-/*@Composable
-fun SignUpPage(){
-                //Moved to SignupPae.kt
-}*/
-
-/*@Composable
-fun BookDetailPage(){
-    //The page that appears when you click on a book that shows the full cover of the book, author description and a button to bookmark or unbookmark the book and see the comment section below
-    //This has been moved to BookDetailPage.kt
-    CommentsSection()
-}*/
-
-/*@Composable
-fun HomePage() {
-                    //This has been moved to HomeScreen.kt delete later
-    BookDisplay()
-}*/
 
 @Preview(showBackground = true)
 @Composable
