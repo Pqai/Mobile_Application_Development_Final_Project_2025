@@ -12,7 +12,21 @@ import kotlinx.coroutines.launch
 class BookViewModel : ViewModel(){
     private val _uiState = MutableStateFlow<BookUiState>(BookUiState.Loading)
     val uiState: StateFlow<BookUiState> = _uiState
+    val books: StateFlow<List<Book>> = _books
     //
+
+    fun loadBooks(query: String = ""){
+        viewModelScope.launch {
+            _uiState.value = BookUiState.Loading
+            try {
+                val response = LibraryApiService.api.searchBooks(query)
+                _books.value = response.docs
+                _uiState.value = BookUiState.Success
+            } catch (e: Exception) {
+                _uiState.value = BookUiState.Error("Failed to load books")
+            }
+        }
+    }
 
     fun loadBookDetails(bookId: String){
         viewModelScope.launch {

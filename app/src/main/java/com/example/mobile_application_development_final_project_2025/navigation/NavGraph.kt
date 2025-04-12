@@ -22,6 +22,9 @@ fun NavGraph(){
         startDestination = "home"
     ){
         composable("home"){
+
+            val viewModel: BookViewModel = hiltViewModel()
+            val books by viewModel.books.collectAsState()
             HomeScreen(onBookClick = {navController.navigate("book_detail/$it")})
         }
 
