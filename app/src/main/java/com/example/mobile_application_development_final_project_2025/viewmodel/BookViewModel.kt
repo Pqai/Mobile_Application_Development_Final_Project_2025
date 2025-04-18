@@ -4,26 +4,41 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mobile_application_development_final_project_2025.data.Book
+import com.example.mobile_application_development_final_project_2025.network.LibraryApi
 import com.example.mobile_application_development_final_project_2025.network.LibraryApiService
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class BookViewModel : ViewModel(){
+@HiltViewModel
+class BookViewModel @Inject constructor(
+    private val api: LibraryApi
+): ViewModel(){
     private val _uiState = MutableStateFlow<BookUiState>(BookUiState.Loading)
-    val uiState: StateFlow<BookUiState> = _uiState
-    val books: StateFlow<List<Book>> = _books
+    private val _books = MutableStateFlow<List<Book>>(emptyList())
+    val uiState: StateFlow<BookUiState> = _uiState.asStateFlow()
+    val books: StateFlow<List<Book>> = _books.asStateFlow()
     //
 
     fun loadBooks(query: String = ""){
         viewModelScope.launch {
             _uiState.value = BookUiState.Loading
             try {
-                val response = LibraryApiService.api.searchBooks(query)
-                _books.value = response.docs
+                val response = api.searchBooks(query)
+                _books.value = response.docs.map { doc ->
+                    Book(
+                        key = doc.key,
+                        title = doc.title,
+                        author_name = doc.author_name,
+                        cover_i = doc.cover_i
+                    )
+                }
                 _uiState.value = BookUiState.Success
             } catch (e: Exception) {
-                _uiState.value = BookUiState.Error("Failed to load books")
+                _uiState.value = BookUiState.Error("Failed to load books ${e.localizedMessage ?: "Unknown error"}")
             }
         }
     }
@@ -43,16 +58,8 @@ class BookViewModel : ViewModel(){
                     message = "Failed to load book: ${e.message ?: "Unknown error"}"
                 )
             }
-            //bookDetails.value = LibraryApiService.api.getBookDetails(bookId)
         }
     }
-    //private val _bookDetails = mutableStateOf<Book?>(null)
-    //val bookDetails: StateFlow<Book?> = _bookDetails
-    /*fun loadBookDetails(bookId: String){
-        viewModelScope.launch {
-            bookDetails.value = LibraryApiService.api.getBookDetails(bookId)
-        }
-    }*/
 
     fun searchBooks(query: String){
         viewModelScope.launch{
