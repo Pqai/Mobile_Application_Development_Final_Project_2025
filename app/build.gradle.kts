@@ -41,12 +41,9 @@ android {
 
 dependencies {
 
-// Retrofit
     implementation(libs.retrofit)
-// Retrofit with Scalar Converter
     implementation(libs.converter.scalars)
     implementation(libs.androidx.hilt.work)
-    // Retrofit with Kotlin serialization Converter
     implementation (libs.retrofit.v220)
     implementation (libs.converter.gson.v2110)
     implementation(libs.coil.compose)
@@ -55,8 +52,6 @@ dependencies {
     implementation(libs.javax.inject)
     implementation(libs.hilt.android)
     implementation(libs.converter.gson)
-
-    // Kotlin serialization
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.core.ktx)

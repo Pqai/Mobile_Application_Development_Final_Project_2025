@@ -14,6 +14,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavController
 import com.example.mobile_application_development_final_project_2025.data.Comment
 import com.example.mobile_application_development_final_project_2025.ui.theme.Mobile_Application_Development_Final_Project_2025Theme
 
@@ -57,7 +58,7 @@ fun YourListFunctions(){
 }
 
 @Composable
-fun BookItTopBar(){
+fun BookItTopBar(navController: NavController){
     //The top bar of the app where logo, search bar and profile button go
 
     SearchBar()
